@@ -10,14 +10,14 @@ class BigramStats:
         self.itos = itos
         
         self.probs = self.counts()
-        self.g = torch.Generator().manual_seed(21475634)
+        self.g = torch.Generator().manual_seed(2147483647)
         
     
     def counts(self):
         
         dim = len(self.stoi)
         
-        N = torch.zeros((dim,dim)).float()
+        N = torch.zeros((dim,dim))
         
         for w in self.data:
             
@@ -29,8 +29,10 @@ class BigramStats:
                 ix2 = self.stoi[ch2]
                 
                 N[ix1,ix2]+=1
-                
-        P = N / N.sum(1,keepdim=True)
+        
+        
+        P = (N+1).float()            #smoothing
+        P /= N.sum(1,keepdim=True)
         
         return  P
     
@@ -44,6 +46,8 @@ class BigramStats:
         while True:
             
             p = self.probs[ix]
+            
+            #print(p)
         
             ix = torch.multinomial(p,  num_samples=1, replacement=True, generator=self.g).item()
             ch = self.itos[ix]

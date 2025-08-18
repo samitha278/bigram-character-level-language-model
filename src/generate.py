@@ -4,7 +4,7 @@ from bigram_stats import BigramStats
 
 
 def generate_stats(data,stoi,itos,n=5):
-    print("***from generate: " , stoi)
+    
     b_stat = BigramStats(data,stoi,itos)
     
     outs = []
