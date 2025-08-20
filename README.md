@@ -1,6 +1,6 @@
 # Bigram Character-Level Language Model
 
-A simple character-level bigram language model built with PyTorch.  
+A Biagram character level bigram language model built with PyTorch.  
 It can train on a dataset of names/words and then generate new samples character by character.
 
 ---
@@ -27,6 +27,3 @@ It can train on a dataset of names/words and then generate new samples character
 
 ---
 
-
-cd bigram-character-level-language-model
-pip install -r requirements.txt
