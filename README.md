@@ -1,31 +1,32 @@
 # Bigram Character-Level Language Model
 
-This repository contains an implementation of a **bigram character-level language model** in PyTorch.  
-It serves as a stepping stone towards building modern language models (like Transformers), starting from simple bigram models and gradually increasing complexity.  
+A simple character-level bigram language model built with PyTorch.  
+It can train on a dataset of names/words and then generate new samples character by character.
+
+---
+
+## Features
+- Text generation in **two ways**:
+  1. From **statistics & counts** (bigram frequency table)  
+  2. From a **neural network** trained with PyTorch  
+- Train on any text dataset (e.g. names.txt)  
+- Generate new words/names character by character  
+- Includes scripts for training, generation, and basic analysis  
+
+---
+
+## Project Structure
+- `data/` – dataset (e.g. names.txt)  
+- `notebooks/` – Jupyter notebook with experiments  
+- `src/` – source code  
+  - `bigram_stats.py` – text generation using bigram statistics  
+  - `bigram_nn.py` – neural network bigram model  
+  - `train_nn.py` – training script for NN  
+  - `generate.py` – text generation with NN  
+  - `test.py` – quick tests  
+
+---
 
 
-
-## Structure
-
-bigram-character-level-language-model/
-│
-├── data/             # Dataset
-│ └── names.txt
-│
-├── notebooks/        # Jupyter notebooks
-│ └── bigram character-level language model.ipynb
-│
-├── src/              # Source code
-│ ├── bigram_nn.py    # Core bigram neural network implementation
-│ ├── bigram_stats.py # Script to analyze bigram statistics
-│ ├── generate.py     # Sampling script for text generation
-│ ├── test.py         # Simple testing/debugging
-│ └── train_nn.py     # Training script for the bigram NN
-│
-├── requirements.txt  # Python dependencies
-└── README.md
-
-## Outputs
-
-
-...
+cd bigram-character-level-language-model
+pip install -r requirements.txt
